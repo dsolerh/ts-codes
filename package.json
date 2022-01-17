@@ -4,7 +4,15 @@
   "description": "have fun with typescript",
   "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node out/index.js",
+    "prestart": "npm run build",
+    "build": "tsc",
+    "test": "jest --config jestconfig.json",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "preVersion": "npm run format && git add -A src",
+    "patch": "npm run preVersion && npm version patch && npm run postVersion",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "typescript",
@@ -12,6 +20,23 @@
     "recipes",
     "etc"
   ],
-  "author": "",
-  "license": "ISC"
+  "author": "dsolerh",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "jest": "^27.3.0",
+    "prettier": "^2.4.1",
+    "ts-jest": "^27.0.7",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.4.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsolerh/ts-codes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dsolerh/ts-codes/issues"
+  },
+  "homepage": "https://github.com/dsolerh/ts-codes#readme"
 }
