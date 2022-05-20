@@ -17,6 +17,20 @@
         "!**/node_modules/**"
       ],
       "program": "${workspaceFolder}/src/index.ts"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch File",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "preLaunchTask": "tsc: build - tsconfig.json",
+      "outFiles": [
+        "${workspaceFolder}/**/*.js",
+        "!**/node_modules/**"
+      ],
+      "program": "${workspaceFolder}/src/shcema.decorator.ts"
     }
   ]
 }
